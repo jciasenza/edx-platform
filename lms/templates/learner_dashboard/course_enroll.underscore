@@ -1,5 +1,14 @@
 <% if (!(is_enrolled && collectionCourseStatus === 'completed')) { %>
-    <% if (is_enrolled) { %>
+    <% console.log("###########") %>
+    <% console.log(is_enrolled) %>
+    <% console.log(expired) %>
+    <% console.log(typeof expired) %>
+    <% console.log("###########") %>
+
+    <div id="debug aulasneo">#####</div>
+
+    <% if (is_enrolled && (typeof expired === 'undefined' || expired === false)) { %>
+    <% console.log("if (is_enrolled && (typeof expired === 'undefined' || expired === false))") %>
         <a href="<%- course_url %>" class="view-course-button btn-brand btn cta-primary">
             <% if (is_course_ended) { %>
                 <%- gettext('View Archived Course') %>
@@ -8,6 +17,8 @@
             <% } %>
         </a>
     <% } else if (!user_entitlement) { %>
+    <% console.log("else if (!user_entitlement)") %>
+    <% console.log(enrollable_course_runs.length) %>
         <% if (enrollable_course_runs.length > 0) { %>
             <% if (enrollable_course_runs.length > 1) { %>
                 <div class="run-select-container">
